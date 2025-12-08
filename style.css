@@ -1,0 +1,260 @@
+/* Color Palette - Green Tones */
+:root {
+  --primary-green: #1b4332;
+  --light-green: #52b788;
+  --forest-green: #2d6a4f;
+  --dark-green: #0b3d1f;
+  --pale-green: #d8f3dc;
+  --accent-green: #2d6a4f;
+  --mint: #40916c;
+}
+
+/* General */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f0f7f4;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #0b3d1f;
+}
+
+body.w3-content {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* First Grid: Logo & About */
+.logo-section {
+  height: 700px;
+  background: linear-gradient(135deg, #1b4332 0%, #52b788 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.about-section {
+  height: 700px;
+  background: linear-gradient(135deg, #d8f3dc 0%, #b7e4c7 100%);
+  color: #0b3d1f;
+}
+
+.profile-img {
+  width: 30%;
+  border: 3px solid #40916c;
+  box-shadow: 0 8px 24px rgba(64, 145, 108, 0.3);
+  border-radius: 50%;
+}
+
+/* Navigation Buttons */
+.nav-button {
+  padding: 16px;
+  background-color: #2d6a4f !important;
+  color: #ffffff !important;
+  border: 2px solid #2d6a4f !important;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.nav-button:hover {
+  background-color: #40916c !important;
+  border-color: #40916c !important;
+  transform: translateX(5px);
+  box-shadow: 0 6px 16px rgba(64, 145, 108, 0.3);
+}
+
+/* Second Grid: Work & Resume */
+.work-section {
+  min-height: 800px;
+  background: linear-gradient(135deg, #edf5f0 0%, #d8f3dc 100%);
+  text-align: center;
+}
+
+.work-img {
+  width: 100%;
+  border: 2px solid #40916c;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 10px 0;
+}
+
+.work-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(64, 145, 108, 0.4);
+}
+
+.resume-section {
+  min-height: 800px;
+  background: linear-gradient(135deg, #52b788 0%, #2d6a4f 100%);
+  color: white;
+}
+
+/* Third Grid: Contact */
+.swing-by-section {
+  height: 700px;
+  background: linear-gradient(135deg, #1b4332 0%, #0b3d1f 100%);
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-section {
+  height: 700px;
+  background: linear-gradient(135deg, #40916c 0%, #52b788 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Form Elements */
+.form-input {
+  width: 100% !important;
+  border: 2px solid #52b788 !important;
+  border-radius: 6px;
+  padding: 12px !important;
+  font-size: 14px;
+  background-color: #ffffff;
+  color: #0b3d1f;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #40916c !important;
+  box-shadow: 0 0 8px rgba(64, 145, 108, 0.5);
+}
+
+.form-button {
+  background-color: #1b4332 !important;
+  color: white !important;
+  border: none !important;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.form-button:hover {
+  background-color: #40916c !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(64, 145, 108, 0.3);
+}
+
+/* Typography */
+h1, h2 {
+  color: #0b3d1f;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.logo-section h1,
+.about-section h1,
+.resume-section h1,
+.contact-section h1,
+.swing-by-section h1 {
+  color: #ffffff;
+}
+
+/* Links */
+a {
+  color: #40916c;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #2d6a4f;
+  text-decoration: underline;
+}
+
+footer a {
+  color: #40916c;
+}
+
+footer a:hover {
+  color: #52b788;
+}
+
+/* Table Styling */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table th {
+  background-color: rgba(45, 106, 79, 0.9);
+  color: white;
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+}
+
+table td {
+  padding: 12px;
+  border-bottom: 1px solid rgba(82, 183, 136, 0.3);
+}
+
+table tr:hover {
+  background-color: rgba(82, 183, 136, 0.1);
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(135deg, #1b4332 0%, #0b3d1f 100%) !important;
+  color: white;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .logo-section,
+  .about-section,
+  .swing-by-section,
+  .contact-section {
+    height: auto;
+    padding: 40px 20px;
+  }
+
+  .profile-img {
+    width: 40%;
+  }
+
+  .work-section,
+  .resume-section {
+    min-height: auto;
+    padding: 40px 20px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  body.w3-content {
+    padding: 0 10px;
+  }
+
+  .profile-img {
+    width: 50%;
+  }
+
+  .form-button {
+    width: 100%;
+    margin-top: 12px;
+  }
+}
