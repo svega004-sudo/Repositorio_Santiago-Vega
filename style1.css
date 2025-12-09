@@ -1,0 +1,135 @@
+/* ========================================= */
+/* === ESTILOS PERSONALIZADOS AZUL CORPORATIVO === */
+/* ========================================= */
+
+:root {
+    --color-primary: #0f3c5c;   /* Azul corporativo fuerte */
+    --color-accent: #1b5f89;    /* Azul de acento */
+    --color-dark: #082233;      /* Azul profundo / tono serio */
+    --color-success: #5aa9e6;   /* Azul claro éxito */
+    --color-warning: #98c9f7;   /* Azul cielo alerta soft */
+    --color-danger: #497ba5;    /* Azul más oscuro para peligro */
+
+    --color-bg: #e8f0f7;        /* Fondo gris azulado corporativo */
+}
+
+/* ==== FUENTE GLOBAL (Times New Roman) ==== */
+body {
+    font-family: "Times New Roman", Times, serif;
+    background-color: var(--color-bg);
+    color: var(--color-dark);
+    padding-top: 60px;
+}
+
+/* ===== Navbar ===== */
+.navbar-custom {
+    background-color: var(--color-primary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+.navbar-custom .nav-link, 
+.navbar-custom .navbar-brand {
+    font-family: "Times New Roman", Times, serif;
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+.navbar-custom .nav-link:hover {
+    color: #bcd6f2;
+}
+.navbar-custom .navbar-brand {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+/* ===== Tarjeta principal ===== */
+.calculator-card {
+    background-color: #d9e6f2;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 900px;
+    border-top: 5px solid var(--color-primary);
+}
+
+.title {
+    font-family: "Times New Roman", Times, serif;
+    color: var(--color-primary);
+    font-weight: 800;
+    font-size: 2rem;
+}
+
+.subtitle {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.1rem;
+    color: #2e3b47;
+}
+
+.subtitle-description {
+    font-family: "Times New Roman", Times, serif;
+    color: #3a4a57;
+}
+
+/* ===== Inputs ===== */
+.form-control {
+    font-family: "Times New Roman", Times, serif;
+    border-radius: 8px;
+    padding: 12px;
+    border: 1px solid #a5b7c8;
+    transition: border-color 0.3s;
+}
+.form-control:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 0.2rem rgba(15, 60, 92, 0.25);
+}
+
+/* ===== Botón ===== */
+.btn-calculate {
+    font-family: "Times New Roman", Times, serif;
+    background-color: var(--color-accent);
+    color: white;
+    font-weight: 700;
+    padding: 12px 30px;
+    border-radius: 50px;
+    border: none;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.btn-calculate:hover {
+    background-color: #2a7bb4;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(15, 60, 92, 0.3);
+}
+
+/* ===== Resultados ===== */
+#resultContainer {
+    margin-top: 35px;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    background-color: #c9d9e8;
+    border: 1px solid #a5b7c8;
+}
+
+#resultValue, #resultAnalysis {
+    font-family: "Times New Roman", Times, serif;
+}
+
+/* Estados de alerta financieros */
+.text-excellent { color: #1e73be; font-weight: bold; }
+.text-warning { color: #375a72; font-weight: bold; }
+.text-danger { color: #0c2d45; font-weight: bold; }
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .calculator-card {
+        padding: 20px;
+        margin: 20px 10px;
+    }
+    .subtitle-description {
+        display: none;
+    }
+    .display-4 {
+        font-size: 2rem;
+    }
+}
