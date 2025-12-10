@@ -1,61 +1,72 @@
-/**
- * Lógica para la Regla 50/30/20
- */
+const listaCarrito = document.getElementById('lista-carrito');
+const listaCarritoOffcanvas = document.getElementById('lista-carrito-offcanvas');
+const contadorCarrito = document.getElementById('contador-carrito');
 
-function calculateBudget() {
-    // 1. Obtener el Ingreso
-    const incomeInput = document.getElementById('netIncome');
-    const income = parseFloat(incomeInput.value);
-    
-    // Referencia a la sección de resultados
-    const resultsSection = document.getElementById('resultsSection');
+function agregarProducto(nombreProducto) {
+  // Lista principal
+  if (listaCarrito.children.length === 1 && listaCarrito.children[0].textContent === 'No hay productos') {
+    listaCarrito.innerHTML = '';
+  }
 
-    // 2. Validación
-    if (isNaN(income) || income <= 0) {
-        alert("Por favor, ingresa un ingreso mensual válido mayor a 0.");
-        return;
-    }
+  const li = document.createElement('li');
+  li.className = 'list-group-item agregado';
+  li.textContent = nombreProducto;
+  listaCarrito.appendChild(li);
 
-    // 3. Cálculos de la Regla
-    const needs = income * 0.50;   // 50%
-    const wants = income * 0.30;   // 30%
-    const savings = income * 0.20; // 20%
+  // Lista offcanvas
+  if (listaCarritoOffcanvas.children.length === 1 && listaCarritoOffcanvas.children[0].textContent === 'No hay productos') {
+    listaCarritoOffcanvas.innerHTML = '';
+  }
 
-    // 4. Formateador de Moneda (Pesos)
-    const formatter = new Intl.NumberFormat('es-MX', {
-        style: 'currency',
-        currency: 'MXN',
-        minimumFractionDigits: 0
-    });
+  const liOff = document.createElement('li');
+  liOff.className = 'list-group-item agregado';
+  liOff.textContent = nombreProducto;
+  listaCarritoOffcanvas.appendChild(liOff);
 
-    // 5. Inyectar valores en el HTML
-    // Usamos una pequeña animación numérica para que se vea elegante
-    animateValue("valNeeds", 0, needs, 1000, formatter);
-    animateValue("valWants", 0, wants, 1000, formatter);
-    animateValue("valSavings", 0, savings, 1000, formatter);
+  // Quitar clase agregado después de 1s
+  setTimeout(() => {
+    li.classList.remove('agregado');
+    liOff.classList.remove('agregado');
+  }, 1000);
 
-    // 6. Mostrar la sección de resultados con animación
-    resultsSection.classList.remove('d-none');
-    
-    // Desplazar la vista hacia los resultados suavemente
-    resultsSection.scrollIntoView({ behavior: 'smooth' });
+  // Actualizar contador si existe
+  if (contadorCarrito) {
+    contadorCarrito.textContent = listaCarritoOffcanvas.children.length;
+  }
 }
 
-/**
- * Función auxiliar para animar el conteo de números
- * (Hace que los números suban rápidamente hasta el valor final)
- */
-function animateValue(id, start, end, duration, formatter) {
-    const obj = document.getElementById(id);
-    let startTimestamp = null;
-    const step = (timestamp) => {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        const value = Math.floor(progress * (end - start) + start);
-        obj.innerHTML = formatter.format(value);
-        if (progress < 1) {
-            window.requestAnimationFrame(step);
-        }
-    };
-    window.requestAnimationFrame(step);
+function eliminarProducto() {
+  const items = listaCarrito.getElementsByTagName('li');
+  if (items.length > 0) {
+    const ultimo = items[items.length - 1];
+    ultimo.classList.add('eliminado');
+    setTimeout(() => {
+      ultimo.remove();
+      if (listaCarrito.children.length === 0) {
+        const liVacio = document.createElement('li');
+        liVacio.className = 'list-group-item text-muted text-center';
+        liVacio.textContent = 'No hay productos';
+        listaCarrito.appendChild(liVacio);
+      }
+    }, 500);
+  }
+
+  const itemsOff = listaCarritoOffcanvas.getElementsByTagName('li');
+  if (itemsOff.length > 0) {
+    const ultimoOff = itemsOff[itemsOff.length - 1];
+    ultimoOff.classList.add('eliminado');
+    setTimeout(() => {
+      ultimoOff.remove();
+      if (listaCarritoOffcanvas.children.length === 0) {
+        const liVacio = document.createElement('li');
+        liVacio.className = 'list-group-item text-muted text-center';
+        liVacio.textContent = 'No hay productos';
+        listaCarritoOffcanvas.appendChild(liVacio);
+      }
+      // Actualizar contador
+      if (contadorCarrito) {
+        contadorCarrito.textContent = listaCarritoOffcanvas.children.length;
+      }
+    }, 500);
+  }
 }
